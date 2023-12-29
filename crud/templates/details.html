@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+    <h2>MOBILE</h2>
+        {{data}}
+    {% if data.Image %}
+        <img src="{{ data.Image.url }}" alt="" height="300px" width="300px">
+    {%  endif %}
+ 
+{% endblock %}
+    

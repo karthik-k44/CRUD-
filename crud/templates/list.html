@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<h1 style="text-align: center;"> Phone Details</h1>
+
+
+<table class="table" >
+    <tr>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>COMPANY</th>
+        <th>IMAGES</th>
+        <th>VIEW</th>
+        <th>REMOVE</th>
+        <th>UPDATE</th>
+      
+    </tr>
+    
+    {% for c in form %}
+        <tr>
+            <td>{{c.Name}}</td>
+            <td>{{c.Price}}</td>
+            <td>{{c.Company}}</td>
+            <td>
+                {% if c.Image %}
+                <img src="{{ c.Image.url }}" alt="" height="50px" width="50px">
+                {%endif%}
+            </td>
+            <td>
+                <a class="btn" href="{% url 'mobile-deta' c.id %}">View</a>
+            </td>
+            <td>
+                <a class="btn" href="{% url 'mobile-del' c.id %}">Delete</a>
+            </td>
+            <td>
+                <a class="btn" href="{% url 'mobile-update' c.id%}">Update</a>
+            </td>
+        </tr>
+    {% endfor %}
+        
+    
+</table>
+
+{% endblock body %}
+    
